@@ -8,6 +8,7 @@ export default defineConfig({
       '~': path.resolve(__dirname, 'src')
     }
   },
-
-  modules: ["@nuxtjs/tailwindcss"]
+  modules: ["@nuxtjs/tailwindcss"],
+  plugins: [ '~/plugins/amplify.js'],
 });
+
