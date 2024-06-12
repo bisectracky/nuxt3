@@ -7,8 +7,6 @@
 
 
 <script setup>
-import { Auth } from 'aws-amplify';
-
 const signUp = async () => {
   try {
     const user = await Auth.signUp({

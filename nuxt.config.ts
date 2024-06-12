@@ -9,6 +9,5 @@ export default defineConfig({
     }
   },
   modules: ["@nuxtjs/tailwindcss"],
-  plugins: [ '~/plugins/amplify.js'],
 });
 
