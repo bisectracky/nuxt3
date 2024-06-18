@@ -1,0 +1,119 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Mutation {
+  createUseID(input: CreateUseIDInput!): UseID @aws_cognito_user_pools
+  deleteUseID(input: DeleteUseIDInput!): UseID @aws_cognito_user_pools
+  updateUseID(input: UpdateUseIDInput!): UseID @aws_cognito_user_pools
+}
+
+type Query {
+  getUseID(id: ID!): UseID @aws_cognito_user_pools
+  listUseIDS(filter: TableUseIDFilterInput, limit: Int, nextToken: String): UseIDConnection
+}
+
+type Subscription {
+  onCreateUseID(id: ID, title: String): UseID @aws_subscribe(mutations : ["createUseID"])
+  onDeleteUseID(id: ID, title: String): UseID @aws_subscribe(mutations : ["deleteUseID"])
+  onUpdateUseID(id: ID, title: String): UseID @aws_subscribe(mutations : ["updateUseID"])
+}
+
+type UseID {
+  email: String!
+  id: ID!
+  name: String!
+}
+
+type UseIDConnection {
+  items: [UseID]
+  nextToken: String
+}
+
+input CreateUseIDInput {
+  title: String!
+}
+
+input DeleteUseIDInput {
+  id: ID!
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input TableBooleanFilterInput {
+  attributeExists: Boolean
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  attributeExists: Boolean
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input TableIDFilterInput {
+  attributeExists: Boolean
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input TableIntFilterInput {
+  attributeExists: Boolean
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input TableStringFilterInput {
+  attributeExists: Boolean
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input TableUseIDFilterInput {
+  id: TableIDFilterInput
+  title: TableStringFilterInput
+}
+
+input UpdateUseIDInput {
+  id: ID!
+  title: String
+}
