@@ -6,7 +6,7 @@
   </div><br>
   <div class="flex space-x-4">
       <h1 class="bg-gradient-to-br from-yellow-400 from-0% via-orange-500 via-30% to-pink-500 to-90% text-2xl">
-        <button @click="signUp" class="inline-block w-1/2 md:w-full px-5 py-2 bg-gradient-to-br font-semibold text-white hover:from-teal-400 hover:to-blue-500">
+        <button @click="signUp" class="inline-block w-1/2 md:w-full px-5 py-2 bg-gradient-to-br font-semibold text-white hover:from-orange-400 hover:to-pink-500">
           Sign Up
         </button>
       </h1>
