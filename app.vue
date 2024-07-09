@@ -17,7 +17,7 @@
   </div><br>
 
   <body class="flex flex-col items-center h-50 justify-center text-red-300 md-6">
-    <div class="flex space-x-4">
+    <div id="app" class="flex space-x-4">
       <h1>
         <button @click="signIn"
           class="inline-block mb-6 bg-gradient-to-br from-blue-500 from-0% via-indigo-300 via-30% to-green-300 to-90% px-5 py-2 font-semibold text-white hover:from-teal-400 hover:to-blue-500">
